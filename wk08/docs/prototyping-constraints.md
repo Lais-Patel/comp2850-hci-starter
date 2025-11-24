@@ -1,21 +1,39 @@
 # Prototyping Constraints & Trade-offs
 
 ## Rendering splits
-- Full page: `/tasks` returns layout + list + pager.
-- Fragment: `/tasks/fragment` returns list + pager + OOB status.
+- Full page: [describe what `/tasks` returns and when it's used]
+- Fragment: [describe what `/tasks/fragment` returns and when it's used]
 
 ## URL & History
-- `hx-push-url="true"` on filter and pager links keeps Back/Forward meaningful.
+- [Explain how `hx-push-url="true"` maintains browser history]
+- [What breaks if you remove it?]
 
 ## Accessibility hooks
-- Live region `#status` announces changes.
-- Result count associated with list via `aria-describedby`.
+- [Describe the live region `#status` and its purpose]
+- [Explain `aria-describedby` connection between list and result count]
+- [Why is result count visually hidden?]
+
+## State management
+- [How do query parameters (`q`, `page`) maintain state?]
+- [Why must pagination links include the filter query?]
 
 ## Performance notes
-- Page size: 10 items; consider server time vs client cost.
-- Fragments avoid re-sending the full layout.
+- Page size: [your choice - justify it]
+- Fragment response size vs full page: [estimate bandwidth savings]
+- Debounce delay: [300ms - why this value?]
 
 ## Future risks
-- Template duplication between full page and fragments.
-- Focus management after deletes (ensure next focusable target).
+- [What could go wrong with this approach?]
+- [Scalability concerns (e.g., 10,000 tasks)?]
+- [Template maintenance burden?]
 
+## Accessibility verification
+
+### Keyboard testing
+- [Results from Tab navigation test]
+
+### Screen reader testing
+- [If available: what was announced when filtering?]
+
+### No-JS parity
+- [Confirmation that all features work without JavaScript]
